@@ -41,6 +41,27 @@ h1:first-child {
     box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
     vertical-align: middle;
 }
+.avatar.small {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+/*
+    Z-Indexes
+    --------------
+*/
+#main {
+    z-index: 2;
+}
+body > nav a,
+#right,
+#bottom,
+#left {
+    z-index: 3;
+}
 
 
 
@@ -55,13 +76,20 @@ h1:first-child {
 */
 body > nav a {
     position: absolute;
-    z-index: 5;
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: .05em;
     font-size: .8em;
     color: rgba(255, 255, 255, .5);
     cursor: pointer;
+}
+body > nav a span {
+    text-transform: none;
+    text-shadow: 0 1px rgba(0, 0, 0, .2);
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: -.1em;
+    font-size: 1em;
 }
 body > nav a:not(:nth-child(4)):before { /* Button arrows */
     content: " ";
@@ -120,13 +148,15 @@ body > nav a:nth-child(3):before {
         left: 0;
 }
 body > nav a:nth-child(4) { /* Top */
-    transform: translate(-50%, 0) scale(1.5);
+    transform: translate(-50%, 0) scale(1);
     left: 50%;
-    top: 1.5em;
+    top: 2.5em;
     pointer-events: none;
     opacity: 0;
+    font-size: 1.5em;
 }
 body:not(.hom) > nav a:nth-child(4) {
+    transform: translate(-50%, 0) scale(1.5);
     pointer-events: all;
     opacity: 1;
 }
@@ -144,7 +174,7 @@ body > section {
         bottom: 0;
         right: 0;
         left: 0;
-    padding: 5% 10% 0;
+    padding: 10% 10% 0;
     overflow: auto;
     transition: all ease-in-out .5s;
 }
@@ -152,7 +182,6 @@ body > section {
     background: url('../images/design/photos/neonbizarre2.jpg') center / cover #18223A;
     box-shadow: 0 0 10px rgba(0, 0, 0, .6);
     color: #fff;
-    z-index: 2;
 }
 #main h1 {
     text-align: center;
@@ -187,7 +216,6 @@ body > section {
 /* Right panel */
 #right {
     transform: translate(100%, 0);
-    z-index: 3;
 }
 .rig #right {
     transform: translate(0);
@@ -196,7 +224,6 @@ body > section {
 /* Bottom panel */
 #bottom {
     transform: translate(0, 100%);
-    z-index: 3;
 }
 .bot #bottom {
     transform: translate(0, 10%);
@@ -205,7 +232,6 @@ body > section {
 /* Left panel */
 #left {
     transform: translate(-100%, 0);
-    z-index: 2;
 }
 .lef #left {
     transform: translate(0);
@@ -220,7 +246,9 @@ body > section {
 */
 body > section > section {
     background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     border-radius: 3px;
-    max-width: 1000px;
+    max-width: 800px;
     padding: 10%;
+    margin: auto auto 10%;
 }
