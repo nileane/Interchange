@@ -30,7 +30,7 @@ h1 {
     font-size: 4em;
 }
 h1:first-child {
-    margin-top: 0;
+    margin: .5em 0;
 }
 
 
@@ -182,6 +182,7 @@ body > section {
     padding: 10em 10%;
     overflow: auto;
     transition: all ease-in-out .5s;
+    background: no-repeat fixed center / cover transparent;
 }
 
 /* Homescreen */
@@ -211,19 +212,20 @@ body > section {
     opacity: 0;
     pointer-events: none;
 }
-.rig #main h1 {
-    transform: translate(-80%, -50%);
-}
-.lef #main h1 {
-    transform: translate(-20%, -50%);
+.rig #main {
+    transform: translate(-100%, 0);
 }
 .bot #main {
     transform: translate(0, -100%);
+}
+.lef #main {
+    transform: translate(100%, 0);
 }
 
 /* Right panel */
 #right {
     transform: translate(100%, 0);
+    background-image: url(../images/design/photos/coffeeshop_ambiance.jpg);
 }
 .rig #right {
     transform: translate(0);
@@ -240,6 +242,7 @@ body > section {
 /* Left panel */
 #left {
     transform: translate(-100%, 0);
+    background-image: url(../images/design/photos/neonbizarre.jpg);
 }
 .lef #left {
     transform: translate(0);
@@ -256,7 +259,7 @@ body > section > section {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     max-width: 800px;
-    padding: 10%;
+    padding: 2.5em 10%;
     margin: auto auto 10%;
     color: #18223a;
 }
