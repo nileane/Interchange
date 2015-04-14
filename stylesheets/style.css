@@ -187,7 +187,7 @@ body > section {
 
 /* Homescreen */
 #main {
-    background: url('../images/design/photos/neonbizarre2.jpg') center / cover #18223A;
+    background: url('../images/design/photos/neonbizarre.jpg') center / cover #18223A;
     box-shadow: 0 0 10px rgba(0, 0, 0, .6);
     color: #fff;
 }
@@ -225,7 +225,7 @@ body > section {
 /* Right panel */
 #right {
     transform: translate(100%, 0);
-    background-image: url(../images/design/photos/coffeeshop_ambiance.jpg);
+    background-image: url(../images/design/photos/skytograss.jpg);
 }
 .rig #right {
     transform: translate(0);
@@ -242,7 +242,7 @@ body > section {
 /* Left panel */
 #left {
     transform: translate(-100%, 0);
-    background-image: url(../images/design/photos/neonbizarre.jpg);
+    background-image: url(../images/design/photos/coffeeshop_ambiance.jpg);
 }
 .lef #left {
     transform: translate(0);
