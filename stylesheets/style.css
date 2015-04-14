@@ -56,15 +56,14 @@ h1:first-child {
 #main {
     z-index: 2;
 }
-body > nav a,
 #right,
 #bottom,
 #left {
     z-index: 3;
 }
-
-
-
+body > nav a {
+    z-index: 4;
+}
 
 /*
     Navigation buttons
