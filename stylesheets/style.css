@@ -65,10 +65,12 @@ body > nav a {
     z-index: 4;
 }
 
+
+
+
 /*
     Navigation buttons
     ------------------
-
 
         Navigation buttons are positioned using this order:
         Right ; Bottom ; Left ; Top
@@ -77,7 +79,6 @@ body > nav a {
     position: absolute;
     text-transform: uppercase;
     font-weight: 800;
-    letter-spacing: .05em;
     font-size: .8em;
     color: rgba(255, 255, 255, .5);
     cursor: pointer;
@@ -149,7 +150,7 @@ body > nav a:nth-child(3):before {
 body > nav a:nth-child(4) { /* Top */
     transform: translate(-50%, 0) scale(1);
     left: 50%;
-    top: 2.5em;
+    top: 3em;
     pointer-events: none;
     opacity: 0;
     font-size: 1.5em;
@@ -158,6 +159,11 @@ body:not(.hom) > nav a:nth-child(4) {
     transform: translate(-50%, 0) scale(1.5);
     pointer-events: all;
     opacity: 1;
+}
+
+#homebutton.scrolled {
+    pointer-events: none;
+    opacity: 0;
 }
 
 
@@ -173,11 +179,13 @@ body > section {
         bottom: 0;
         right: 0;
         left: 0;
-    padding: 10% 10% 0;
+    padding: 10em 10%;
     overflow: auto;
     transition: all ease-in-out .5s;
 }
-#main { /* Homescreen */
+
+/* Homescreen */
+#main {
     background: url('../images/design/photos/neonbizarre2.jpg') center / cover #18223A;
     box-shadow: 0 0 10px rgba(0, 0, 0, .6);
     color: #fff;
@@ -198,18 +206,19 @@ body > section {
     transition: all ease-in-out .5s;
     opacity: 1;
 }
-.rig #main * {
+.rig #main *,
+.lef #main * {
     opacity: 0;
     pointer-events: none;
 }
 .rig #main h1 {
     transform: translate(-80%, -50%);
 }
+.lef #main h1 {
+    transform: translate(-20%, -50%);
+}
 .bot #main {
     transform: translate(0, -100%);
-}
-.lef #main {
-    transform: translate(100%, 0);
 }
 
 /* Right panel */
@@ -246,8 +255,18 @@ body > section {
 body > section > section {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-    border-radius: 3px;
     max-width: 800px;
     padding: 10%;
     margin: auto auto 10%;
+    color: #18223a;
+}
+body > section > section.transluent {
+    background-color: rgba(255, 255, 255, .85);
+}
+body > section > section.dark {
+    background-color: #141414;
+    color: #eee;
+}
+body > section > section.dark.transluent {
+    background-color: rgba(20, 20, 20, 0.85);
 }
