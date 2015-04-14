@@ -22,20 +22,15 @@ a {
 
 
 /* Headlines */
-h1 {
+h1, h2, h3 {
     font-weight: 200;
+}
+h1 {
     line-height: 1;
     font-size: 4em;
 }
-#main h1 {
-    text-align: center;
-    letter-spacing: -.1em;
-    position: absolute;
-        top: 50%;
-        left: 50%;
-    margin: 0;
-    transform: translate(-50%, -50%);
-    text-shadow: 0 2px rgba(0, 0, 0, 0.2);
+h1:first-child {
+    margin-top: 0;
 }
 
 
@@ -159,8 +154,28 @@ body > section {
     color: #fff;
     z-index: 2;
 }
-.rig #main {
-    transform: translate(-100%, 0);
+#main h1 {
+    text-align: center;
+    letter-spacing: -.1em;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Apply effect to Homescreen when switching to other screens */
+#main * {
+    transition: all ease-in-out .5s;
+    opacity: 1;
+}
+.rig #main * {
+    opacity: 0;
+    pointer-events: none;
+}
+.rig #main h1 {
+    transform: translate(-80%, -50%);
 }
 .bot #main {
     transform: translate(0, -100%);
@@ -169,17 +184,17 @@ body > section {
     transform: translate(100%, 0);
 }
 
-
-#right { /* Right panel */
+/* Right panel */
+#right {
     transform: translate(100%, 0);
-    z-index: 2;
+    z-index: 3;
 }
 .rig #right {
     transform: translate(0);
 }
 
-
-#bottom { /* Bottom panel */
+/* Bottom panel */
+#bottom {
     transform: translate(0, 100%);
     z-index: 3;
 }
@@ -187,8 +202,8 @@ body > section {
     transform: translate(0, 10%);
 }
 
-
-#left { /* Left panel */
+/* Left panel */
+#left {
     transform: translate(-100%, 0);
     z-index: 2;
 }
@@ -196,3 +211,16 @@ body > section {
     transform: translate(0);
 }
 
+
+
+
+/*
+    Inner Sections
+    --------------
+*/
+body > section > section {
+    background-color: #fff;
+    border-radius: 3px;
+    max-width: 1000px;
+    padding: 10%;
+}
