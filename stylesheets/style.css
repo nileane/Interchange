@@ -1,0 +1,198 @@
+@import url(fonts/Fira/fira.css);
+@import url(fonts/openiconic/css/open-iconic.css);
+
+
+
+body {
+    font: 13pt "Fira Sans", sans-serif;
+    background: url(../images/design/patterns/noise.png) #222;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0; /* This prevents Firefox user from
+                                             being able to scroll out of the view using the arrow keys */
+}
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+
+/* Headlines */
+h1 {
+    font-weight: 200;
+    line-height: 1;
+    font-size: 4em;
+}
+#main h1 {
+    text-align: center;
+    letter-spacing: -.1em;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 2px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Avatar */
+.avatar {
+    border-radius: 50%;
+    width: 70px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+    vertical-align: middle;
+}
+
+
+
+
+/*
+    Navigation buttons
+    ------------------
+
+
+        Navigation buttons are positioned using this order:
+        Right ; Bottom ; Left ; Top
+*/
+body > nav a {
+    position: absolute;
+    z-index: 5;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: .05em;
+    font-size: .8em;
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+}
+body > nav a:not(:nth-child(4)):before { /* Button arrows */
+    content: " ";
+    display: block;
+    width: 88px;
+    height: 32px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAgCAQAAAA87XcTAAABCElEQVR4Ae3YsWmHUBzEcXEEcRTBTSyTSnAAB7ARy5TCf45/mfRCGhdwAnGEl2+EhymSV96BRe7an3LFx8bsPxkFA29nBwoyddUvzGnZubLTkt95cMXC7yxU9xxcMBNIJTDrcCghJKLH4YIAeHC4IHyeteBwQDjoyM92HHocagiBB+XPTcmDoMWhhlD/ua21ONQQEk9ocUghJCrH4YIQa8Dhg2DC4YVgwKGHYMahh2DGoYdgxqGHYMYhhuDH4YcgxuGHIMbhhyDG4YcgxhHPRj8EAY7xGvzihyDC8RoHb34IIhxbHPzuhyDC8REH9wB86SHIcfTXR9ew8mTSQxDhmHiy0hh+Bvr7DbXruu2b6S1ZAAAAAElFTkSuQmCC);
+    opacity: .4;
+    transition: all .5s;
+}
+body > nav a:hover:before {
+    opacity: 1;
+}
+
+body:not(.hom) > nav a:first-child,
+body:not(.hom) > nav a:nth-child(2),
+body:not(.hom) > nav a:nth-child(3) {
+    pointer-events: none;
+    opacity: 0;
+}
+
+
+body > nav a:first-child { /* Right */
+    right: 1em;
+    top: 50%;
+    margin-right: 1.8em;
+}
+body > nav a:first-child:before {
+    transform: scale(0.6) translate(110%, 0) rotate(90deg);
+    position: absolute;
+        top: -5px;
+        right: 0;
+}
+
+body > nav a:nth-child(2) { /* Bottom */
+    left: 0; right: 0; bottom: 0;
+    text-align: center;
+    padding: .5em 0 2.5em;
+}
+body > nav a:nth-child(2):before {
+    transform: scale(0.6) translate(-85%, -10px) rotate(180deg);
+    position: absolute;
+        bottom: 0;
+        left: 50%;
+}
+
+body > nav a:nth-child(3) { /* Left */
+    left: 1em;
+    top: 50%;
+    margin-left: 1.8em;
+}
+body > nav a:nth-child(3):before {
+    transform: scale(0.6) translate(-110%, 0) rotate(-90deg);
+    position: absolute;
+        top: -5px;
+        left: 0;
+}
+body > nav a:nth-child(4) { /* Top */
+    transform: translate(-50%, 0) scale(1.5);
+    left: 50%;
+    top: 1.5em;
+    pointer-events: none;
+    opacity: 0;
+}
+body:not(.hom) > nav a:nth-child(4) {
+    pointer-events: all;
+    opacity: 1;
+}
+
+
+
+
+/*
+    4-Way Sections
+    --------------
+*/
+body > section {
+    position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    padding: 5% 10% 0;
+    overflow: auto;
+    transition: all ease-in-out .5s;
+}
+#main { /* Homescreen */
+    background: url('../images/design/photos/neonbizarre2.jpg') center / cover #18223A;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+    color: #fff;
+    z-index: 2;
+}
+.rig #main {
+    transform: translate(-100%, 0);
+}
+.bot #main {
+    transform: translate(0, -100%);
+}
+.lef #main {
+    transform: translate(100%, 0);
+}
+
+
+#right { /* Right panel */
+    transform: translate(100%, 0);
+    z-index: 2;
+}
+.rig #right {
+    transform: translate(0);
+}
+
+
+#bottom { /* Bottom panel */
+    transform: translate(0, 100%);
+    z-index: 3;
+}
+.bot #bottom {
+    transform: translate(0, 10%);
+}
+
+
+#left { /* Left panel */
+    transform: translate(-100%, 0);
+    z-index: 2;
+}
+.lef #left {
+    transform: translate(0);
+}
+
