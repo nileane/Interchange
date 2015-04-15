@@ -3,7 +3,7 @@
  */
 
 $(function(){
-  $("body>section").scroll(function()
+  $("#body>section").scroll(function()
   {
     $("#homebutton").removeClass("topped").addClass("scrolled");
     var divTop = $('#homebutton').height();
