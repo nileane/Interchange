@@ -105,9 +105,9 @@ h1:first-child {
     opacity: 1;
 }
 
-body:not(.hom) #body > nav a:first-child,
-body:not(.hom) #body > nav a:nth-child(2),
-body:not(.hom) #body > nav a:nth-child(3) {
+body *:target #body > nav a:first-child,
+body *:target #body > nav a:nth-child(2),
+body *:target #body > nav a:nth-child(3) {
     pointer-events: none;
     opacity: 0;
 }
@@ -156,7 +156,7 @@ body:not(.hom) #body > nav a:nth-child(3) {
     opacity: 0;
     font-size: 1.5em;
 }
-body:not(.hom) #body > nav a:nth-child(4):not(.scrolled) {
+body *:target #body > nav a:nth-child(4):not(.scrolled) {
     transform: translate(-50%, 0) scale(1.5);
     pointer-events: all;
     opacity: 1;
@@ -204,18 +204,18 @@ body:not(.hom) #body > nav a:nth-child(4):not(.scrolled) {
     transition: all ease-in-out .5s;
     opacity: 1;
 }
-.rig #main *,
-.lef #main * {
+#rig:target #main *,
+#lef:target #main * {
     opacity: 0;
     pointer-events: none;
 }
-.rig #main {
+#rig:target #main {
     transform: translate(-100%, 0);
 }
-.bot #main {
+#bot:target #main {
     transform: translate(0, -100%);
 }
-.lef #main {
+#lef:target #main {
     transform: translate(100%, 0);
 }
 
@@ -224,7 +224,7 @@ body:not(.hom) #body > nav a:nth-child(4):not(.scrolled) {
     transform: translate(100%, 0);
     background-image: url(../images/design/photos/skytograss.jpg);
 }
-.rig #right {
+#rig:target #right {
     transform: translate(0);
 }
 
@@ -232,7 +232,7 @@ body:not(.hom) #body > nav a:nth-child(4):not(.scrolled) {
 #bottom {
     transform: translate(0, 100%);
 }
-.bot #bottom {
+#bot:target #bottom {
     transform: translate(0, 10%);
 }
 
@@ -241,7 +241,7 @@ body:not(.hom) #body > nav a:nth-child(4):not(.scrolled) {
     transform: translate(-100%, 0);
     background-image: url(../images/design/photos/coffeeshop_ambiance.jpg);
 }
-.lef #left {
+#lef:target #left {
     transform: translate(0);
 }
 
