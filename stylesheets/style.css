@@ -57,7 +57,7 @@ h1:first-child {
 #left {
     z-index: 3;
 }
-#body > nav a {
+#container > nav a {
     z-index: 4;
 }
 
@@ -71,15 +71,15 @@ h1:first-child {
         Navigation buttons are positioned using this order:
         Right ; Bottom ; Left ; Top
 */
-#body > nav a {
+#container > nav a {
     position: absolute;
     text-transform: uppercase;
     font-weight: 800;
     font-size: .8em;
-    color: rgba(255, 255, 255, .5);
     cursor: pointer;
+    color: transparent;
 }
-#body > nav a span {
+#container > nav a span {
     text-transform: none;
     text-shadow: 0 1px rgba(0, 0, 0, .2),
         0 0 20px rgba(0, 0, 0, .8);
@@ -88,7 +88,7 @@ h1:first-child {
     letter-spacing: -.1em;
     font-size: 1em;
 }
-#body > nav a:not(:nth-child(4)):before { /* Button arrows */
+#container > nav a:not(:nth-child(4)):before { /* Button arrows */
     content: " ";
     display: block;
     width: 88px;
@@ -97,54 +97,58 @@ h1:first-child {
     opacity: .4;
     transition: all .5s;
 }
-#body > nav a:hover:before {
+#container > nav a:hover:before {
     opacity: 1;
 }
 
-body *:target #body > nav a:first-child,
-body *:target #body > nav a:nth-child(2),
-body *:target #body > nav a:nth-child(3) {
+#lef:target #container > nav a:nth-child(2),
+#lef:target #container > nav a:nth-child(3) {
+    pointer-events: none;
+    opacity: 0;
+}
+#rig:target #container > nav a:first-child,
+#rig:target #container > nav a:nth-child(2) {
     pointer-events: none;
     opacity: 0;
 }
 
 
-#body > nav a:first-child { /* Right */
+#container > nav a:first-child { /* Right */
     right: 1em;
     top: 50%;
     margin-right: 1.8em;
 }
-#body > nav a:first-child:before {
+#container > nav a:first-child:before {
     transform: scale(0.6) translate(110%, 0) rotate(90deg);
     position: absolute;
         top: -5px;
         right: 0;
 }
 
-#body > nav a:nth-child(2) { /* Bottom */
+#container > nav a:nth-child(2) { /* Bottom */
     left: 0; right: 0; bottom: 0;
     text-align: center;
     padding: .5em 0 2.5em;
 }
-#body > nav a:nth-child(2):before {
+#container > nav a:nth-child(2):before {
     transform: scale(0.6) translate(-85%, -10px) rotate(180deg);
     position: absolute;
         bottom: 0;
         left: 50%;
 }
 
-#body > nav a:nth-child(3) { /* Left */
+#container > nav a:nth-child(3) { /* Left */
     left: 1em;
     top: 50%;
     margin-left: 1.8em;
 }
-#body > nav a:nth-child(3):before {
+#container > nav a:nth-child(3):before {
     transform: scale(0.6) translate(-110%, 0) rotate(-90deg);
     position: absolute;
         top: -5px;
         left: 0;
 }
-#body > nav a:nth-child(4) { /* Top */
+#container > nav a:nth-child(4) { /* Top */
     transform: translate(-50%, 0) scale(1);
     left: 50%;
     top: 3em;
@@ -152,7 +156,7 @@ body *:target #body > nav a:nth-child(3) {
     opacity: 0;
     font-size: 1.5em;
 }
-body *:target #body > nav a:nth-child(4):not(.scrolled) {
+body *:target #container > nav a:nth-child(4):not(.scrolled) {
     transform: translate(-50%, 0) scale(1.5);
     pointer-events: all;
     opacity: 1;
@@ -165,7 +169,7 @@ body *:target #body > nav a:nth-child(4):not(.scrolled) {
     3-Way Sections
     --------------
 */
-#body > section {
+#container > section {
     position: absolute;
         top: 0;
         bottom: 0;
@@ -177,12 +181,57 @@ body *:target #body > nav a:nth-child(4):not(.scrolled) {
     background-size: cover;
     background-position: center;
 }
-#body > section > div {
+#container > section > div {
     overflow: auto;
 
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
 }
+
+
+
+
+
+/* Screens line container */
+.screens-ct {
+    width: 300%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+
+    transform: translate(-33.333333333%, 0);
+    transition: transform .5s;
+}
+.screens-ct > section {
+    height: 100%;
+    width: calc(100% / 3);
+    padding: 0;
+    position: relative;
+    flex: 1 1 30%;
+    overflow: auto;
+}
+.screens-ct > section:first-child {
+    order: 2; /* We set the first section as the main one, and hence make it the one in the middle */
+}
+.screens-ct > section:nth-child(2) {
+    order: 1;
+}
+.screens-ct > section:nth-child(3) {
+    order: 3;
+}
+#rig:target .screens-ct {
+    transform: translate(-66.666666666%, 0);
+}
+#lef:target .screens-ct {
+    transform: translate(0, 0);
+}
+#bot:target .screens-ct {
+    transform: translate(-33.333333333%, -100%);
+}
+
+
+
 
 /* Homescreen */
 #main {
@@ -201,50 +250,18 @@ body *:target #body > nav a:nth-child(4):not(.scrolled) {
     text-shadow: 0 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Apply effect to Homescreen when switching to other screens */
-#main * {
-    transition: all ease-in-out .5s;
-    opacity: 1;
-}
-#rig:target #main *,
-#lef:target #main * {
-    opacity: 0;
-    pointer-events: none;
-}
-#rig:target #main {
-    transform: translate(-100%, 0);
-}
-#bot:target #main {
-    transform: translate(0, -100%);
-}
-#lef:target #main {
-    transform: translate(100%, 0);
-}
-
 /* Right panel */
 #right {
-    transform: translate(100%, 0);
     background-image: url(../images/design/photos/skytograss.jpg);
-}
-#rig:target #right {
-    transform: translate(0);
 }
 
 /* Bottom panel */
 #bottom {
-    transform: translate(0, 100%);
-}
-#bot:target #bottom {
-    transform: translate(0, 10%);
 }
 
 /* Left panel */
 #left {
-    transform: translate(-100%, 0);
     background-image: url(../images/design/photos/coffeeshop_ambiance.jpg);
-}
-#lef:target #left {
-    transform: translate(0);
 }
 
 
