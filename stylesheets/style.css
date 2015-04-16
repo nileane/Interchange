@@ -250,27 +250,22 @@ body *:target #container > nav a:nth-child(4):not(.scrolled) {
     text-shadow: 0 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Right panel */
+/* Right screen */
 #right {
     background-image: url(../images/design/photos/skytograss.jpg);
 }
 
-/* Bottom panel */
-#bottom {
-}
-
-/* Left panel */
+/* Left screen */
 #left {
     background-image: url(../images/design/photos/coffeeshop_ambiance.jpg);
 }
 
 
-
 /*
-    Inner Sections "sheets"
+    Inner Sections "Papers"
     --------------
 */
-.sheet {
+.paper {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     max-width: 800px;
@@ -278,13 +273,13 @@ body *:target #container > nav a:nth-child(4):not(.scrolled) {
     margin: auto auto 10%;
     color: #18223a;
 }
-.sheet.transluent {
+.paper.transluent {
     background-color: rgba(255, 255, 255, .85);
 }
-.sheet.dark {
+.paper.dark {
     background-color: #141414;
     color: #eee;
 }
-.sheet.dark.transluent {
+.paper.dark.transluent {
     background-color: rgba(20, 20, 20, 0.85);
 }
