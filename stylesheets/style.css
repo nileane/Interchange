@@ -4,7 +4,7 @@
 
 
 body {
-    font: 13pt "Fira Sans", sans-serif;
+    font: 13pt/1.4 "Fira Sans", sans-serif;
     background: url(../images/design/patterns/noise.png) #222;
     overflow: hidden;
     padding: 0;
@@ -15,21 +15,23 @@ a {
     text-decoration: none;
     transition: all .3s;
 }
+p {
+    margin: 0 0 1em;
+    font-size: 110%;
+}
 
 
 /* Headlines */
 h1, h2, h3 {
     font-weight: 200;
-}
-    h1, h2, h3 {
-    font-weight: 200;
+    margin: 0 0 .3em;
 }
 h1 {
     line-height: 1;
     font-size: 4em;
 }
-h1:first-child {
-    margin: .5em 0;
+h2 {
+    font-size: 3em;
 }
 
 
@@ -198,7 +200,11 @@ h1:first-child {
     animation: slide-to-right 1s 1;
 }
 #rig:target .screens-ct > section:nth-child(3) > * {
-    animation: fade-in 1s 1;
+    animation: slide-to-left 1s 1;
+}
+
+.screens-ct > section:not(#main) > *:first-child {
+    margin-top: 150px;
 }
 
 
@@ -208,10 +214,6 @@ h1:first-child {
     color: #fff;
 }
 #main .centered {
-    position: absolute;
-        top: 50%; left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
     animation: fade-in 1.8s 1;
     text-shadow: 0 2px rgba(0, 0, 0, 0.2);
     font-weight: 200;
@@ -237,8 +239,9 @@ h1:first-child {
 .paper {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-    max-width: 800px;
-    padding: 2.5em 8%;
+    max-width: 80%;
+    max-width: calc(1200px - 30%);
+    padding: 2.5em 10%;
     margin: 2em auto;
     color: rgba(0, 0, 0, .8);
 }
@@ -258,8 +261,17 @@ h1:first-child {
         0 1px 10px rgba(0, 0, 0, .2);
     background-color: transparent;
     box-shadow: none;
+    margin-bottom: -2em;
 }
-
+.centered {
+    position: absolute;
+        top: 50%; left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+.paper.centered {
+    width: 60%;
+}
 
 
 /*
@@ -322,6 +334,17 @@ h1:first-child {
         opacity: 1;
     }
 }
+@keyframes slide-to-left-centered {
+    from {
+        transform: translate(-20%, -50%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
 @-webkit-keyframes ticker-items-scroll {
 	0%   {-webkit-transform: translate(0, 0);}
 	25%  {-webkit-transform: translate(0, -100%);}
