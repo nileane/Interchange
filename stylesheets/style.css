@@ -235,12 +235,6 @@ h2 {
     margin: 0;
     text-transform: lowercase;
 }
-#main .ticker {
-    text-align: right;
-    display: block;
-    float: right;
-    font-size: 100%;
-}
 
 /*
     Inner Sections "Papers"
@@ -281,24 +275,6 @@ h2 {
 }
 .paper.centered {
     width: 60%;
-}
-
-
-/*
-    Ticker block
-    ------------
-*/
-.ticker {
-    list-style: none;
-    margin: 0;
-    height: 1.1em;
-    overflow: hidden;
-    text-shadow: none;
-}
-.ticker li {
-    line-height: 1.2em;
-    -webkit-animation: ticker-items-scroll 8s cubic-bezier(1, 0, .5, 0) 2s 1;
-            animation: ticker-items-scroll 8s cubic-bezier(1, 0, .5, 0) 2s 1;
 }
 
 
