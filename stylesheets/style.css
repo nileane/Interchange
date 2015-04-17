@@ -76,11 +76,10 @@ h1:first-child {
 */
 #container > nav a {
     position: absolute;
-    text-transform: uppercase;
-    font-weight: 800;
+    font-style: italic;
     font-size: .8em;
     cursor: pointer;
-    color: transparent;
+    color: rgba(255, 255, 255, .5);
 }
 #container > nav a:not(:nth-child(4)):before { /* Button arrows */
     content: " ";
@@ -199,7 +198,7 @@ h1:first-child {
     animation: slide-to-right 1s 1;
 }
 #rig:target .screens-ct > section:nth-child(3) > * {
-    animation: slide-to-top 1s 1;
+    animation: fade-in 1s 1;
 }
 
 
@@ -208,17 +207,27 @@ h1:first-child {
 #main {
     color: #fff;
 }
+#main .centered {
+    position: absolute;
+        top: 50%; left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    animation: fade-in 1.8s 1;
+    text-shadow: 0 2px rgba(0, 0, 0, 0.2);
+    font-weight: 200;
+    line-height: 1;
+}
 #main h1 {
     text-align: center;
     letter-spacing: -.1em;
-    position: absolute;
-        top: 50%; left: 50%;
     margin: 0;
     text-transform: lowercase;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    text-shadow: 0 2px rgba(0, 0, 0, 0.2);
-    animation: fade-in 1.8s 1;
+}
+#main .ticker {
+    text-align: right;
+    display: block;
+    float: right;
+    font-size: 100%;
 }
 
 /*
@@ -249,6 +258,25 @@ h1:first-child {
         0 1px 10px rgba(0, 0, 0, .2);
     background-color: transparent;
     box-shadow: none;
+}
+
+
+
+/*
+    Ticker block
+    ------------
+*/
+.ticker {
+    list-style: none;
+    margin: 0;
+    height: 1.1em;
+    overflow: hidden;
+    text-shadow: none;
+}
+.ticker li {
+    line-height: 1.2em;
+    -webkit-animation: ticker-items-scroll 8s cubic-bezier(1, 0, .5, 0) 2s 1;
+            animation: ticker-items-scroll 8s cubic-bezier(1, 0, .5, 0) 2s 1;
 }
 
 
@@ -293,4 +321,19 @@ h1:first-child {
         transform: translate(0);
         opacity: 1;
     }
+}
+@-webkit-keyframes ticker-items-scroll {
+	0%   {-webkit-transform: translate(0, 0);}
+	25%  {-webkit-transform: translate(0, -100%);}
+	50%  {-webkit-transform: translate(0, -200%);}
+	75%  {-webkit-transform: translate(0, -300%);}
+	100% {-webkit-transform: translate(0, 0);}
+}
+
+@keyframes ticker-items-scroll {
+	0%   {transform: translate(0, 0);}
+	25%  {transform: translate(0, -100%);}
+	50%  {transform: translate(0, -200%);}
+	75%  {transform: translate(0, -300%);}
+	100% {transform: translate(0, 0);}
 }
