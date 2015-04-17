@@ -10,28 +10,28 @@ document.onkeydown = function(e) {
     switch(e.which || e.keyCode) {
         case 37: // left
               if (window.location.hash == '#rig') { // Press Left to go back to Homescreen from Right-hand screen
-                  location = '#hom';
-              } else if (window.location.hash == '#hom' || window.location.hash == '') { // Press Left to go to Left-hand screen
+                  location = '#home';
+              } else if (window.location.hash == '#home' || window.location.hash == '') { // Press Left to go to Left-hand screen
                   location = '#lef'
               }
         break;
 
         case 38: // up
             if (window.location.hash == '#bot') { // Press Up to go back to Homescreen from Bottom-hand screen
-                location = '#hom';
+                location = '#home';
             }
         break;
 
         case 39: // right
             if (window.location.hash == '#lef') { // Press Right to go back to Homescreen from Left-hand screen
-                location = '#hom';
-            } else if (window.location.hash == '#hom' || window.location.hash == '') {
+                location = '#home';
+            } else if (window.location.hash == '#home' || window.location.hash == '') {
                 location = '#rig'; // Press Right to go to Right-hand screen
             }
         break;
 
         case 40: // down
-            if (window.location.hash == '#hom' || window.location.hash == '') { // Press Down to go to Bottom Pane
+            if (window.location.hash == '#home' || window.location.hash == '') { // Press Down to go to Bottom Pane
                 location = '#bot'
             }
         break;

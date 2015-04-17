@@ -21,6 +21,9 @@ a {
 h1, h2, h3 {
     font-weight: 200;
 }
+    h1, h2, h3 {
+    font-weight: 200;
+}
 h1 {
     line-height: 1;
     font-size: 4em;
@@ -78,15 +81,6 @@ h1:first-child {
     font-size: .8em;
     cursor: pointer;
     color: transparent;
-}
-#container > nav a span {
-    text-transform: none;
-    text-shadow: 0 1px rgba(0, 0, 0, .2),
-        0 0 20px rgba(0, 0, 0, .8);
-    font-weight: 300;
-    color: #fff;
-    letter-spacing: -.1em;
-    font-size: 1em;
 }
 #container > nav a:not(:nth-child(4)):before { /* Button arrows */
     content: " ";
@@ -148,118 +142,84 @@ h1:first-child {
         top: -5px;
         left: 0;
 }
-#container > nav a:nth-child(4) { /* Top */
-    transform: translate(-50%, 0) scale(1);
-    left: 50%;
-    top: 3em;
-    pointer-events: none;
-    opacity: 0;
-    font-size: 1.5em;
-}
-body *:target #container > nav a:nth-child(4):not(.scrolled) {
-    transform: translate(-50%, 0) scale(1.5);
-    pointer-events: all;
-    opacity: 1;
-}
 
 
 
 
 /*
-    3-Way Sections
-    --------------
-*/
-#container > section {
-    position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    padding: 0;
-    overflow: hidden;
-    transition: all ease-in-out .5s;
-    background-size: cover;
-    background-position: center;
-}
-#container > section > div {
-    overflow: auto;
-
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-}
-
-
-
-
-
-/* Screens line container */
+    Sliding screens
+    ---------------
+ */
 .screens-ct {
     width: 300%;
     height: 100%;
     position: relative;
-    display: flex;
-    flex-flow: row wrap;
+    background: url(../images/design/photos/panom.jpg) center / cover;
 
-    transform: translate(-33.333333333%, 0);
+    -webkit-transform: translate(-33.333333333%, 0);
+            transform: translate(-33.333333333%, 0);
     transition: transform .5s;
-}
-.screens-ct > section {
-    height: 100%;
-    width: calc(100% / 3);
-    padding: 0;
-    position: relative;
-    flex: 1 1 30%;
-    overflow: auto;
-}
-.screens-ct > section:first-child {
-    order: 2; /* We set the first section as the main one, and hence make it the one in the middle */
-}
-.screens-ct > section:nth-child(2) {
-    order: 1;
-}
-.screens-ct > section:nth-child(3) {
-    order: 3;
+    word-spacing: -5px;
 }
 #rig:target .screens-ct {
-    transform: translate(-66.666666666%, 0);
+    -webkit-transform: translate(-66.666666666%, 0);
+            transform: translate(-66.666666666%, 0);
 }
 #lef:target .screens-ct {
-    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
 }
 #bot:target .screens-ct {
-    transform: translate(-33.333333333%, -100%);
+    -webkit-transform: translate(-33.333333333%, -100%);
+            transform: translate(-33.333333333%, -100%);
 }
 
+
+.screens-ct > section {
+    height: 100%;
+    width: 33.333333333%;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: inline-block;
+    word-spacing: normal;
+}
+.screens-ct > section:first-child {
+    -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0);
+}
+.screens-ct > section:nth-child(2) {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+}
+
+
+#lef:target .screens-ct > section:nth-child(2) > * { /* Additional sliding-in animation */
+    animation: slide-to-right 1s 1;
+}
+#rig:target .screens-ct > section:nth-child(3) > * {
+    animation: slide-to-top 1s 1;
+}
 
 
 
 /* Homescreen */
 #main {
-    background: url('../images/design/photos/neonbizarre.jpg') center / cover #18223A;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .6);
     color: #fff;
 }
 #main h1 {
     text-align: center;
     letter-spacing: -.1em;
     position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 50%; left: 50%;
     margin: 0;
-    transform: translate(-50%, -50%);
+    text-transform: lowercase;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     text-shadow: 0 2px rgba(0, 0, 0, 0.2);
+    animation: fade-in 1.8s 1;
 }
-
-/* Right screen */
-#right {
-    background-image: url(../images/design/photos/skytograss.jpg);
-}
-
-/* Left screen */
-#left {
-    background-image: url(../images/design/photos/coffeeshop_ambiance.jpg);
-}
-
 
 /*
     Inner Sections "Papers"
@@ -270,7 +230,7 @@ body *:target #container > nav a:nth-child(4):not(.scrolled) {
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     max-width: 800px;
     padding: 2.5em 8%;
-    margin: auto auto 10%;
+    margin: 2em auto;
     color: #18223a;
 }
 .paper.transluent {
@@ -282,4 +242,55 @@ body *:target #container > nav a:nth-child(4):not(.scrolled) {
 }
 .paper.dark.transluent {
     background-color: rgba(20, 20, 20, 0.85);
+}
+.paper.transparent {
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .2),
+        0 1px 10px rgba(0, 0, 0, .2);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+
+/*
+    Animations
+    ----------
+*/
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes slide-to-top {
+    from {
+        transform: translate(0, 30%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-to-right {
+    from {
+        transform: translate(-30%, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-to-left {
+    from {
+        transform: translate(30%, 0);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0);
+        opacity: 1;
+    }
 }

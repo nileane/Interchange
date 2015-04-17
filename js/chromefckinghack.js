@@ -8,6 +8,6 @@
  *
  */
 $('.screens-ct').on('transitionend webkitTransitionEnd', function(evt){
-    $('.screens-ct > section').css({overflow:'hidden'});
-    setTimeout( "$('.screens-ct > section').css({overflow:'auto'});", 1 );
+    $('.screens-ct > section').css({'overflow-y':'hidden'});
+    setTimeout( "$('.screens-ct > section').css({'overflow-y':'auto'});", 1 );
 });
