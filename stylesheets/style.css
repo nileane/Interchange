@@ -231,7 +231,7 @@ h1:first-child {
     max-width: 800px;
     padding: 2.5em 8%;
     margin: 2em auto;
-    color: #18223a;
+    color: rgba(0, 0, 0, .8);
 }
 .paper.transluent {
     background-color: rgba(255, 255, 255, .85);
